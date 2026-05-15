@@ -1,0 +1,24 @@
+public class projectmanagement 
+{
+	public static void check(list<project__c>plist)
+    {
+        for(project__c p:plist)
+        {
+            if(p.budget__c<1500000)
+            {
+                p.addError('amount should be greater than 1500000');
+            }
+        }
+    }
+    
+    public static void avoid(list<requirement__c>relist)
+    {
+        for(requirement__c r:relist)
+        {
+            if(	r.status__c=='approved')
+            {
+                r.addError('you can not delete these record because status is approved');
+            }
+        }
+    }
+}
